@@ -1,0 +1,60 @@
+pre,
+code,
+.example,
+.section-number{
+	background: #333;
+	color: #fff;
+	border-radius: 4px;
+}
+
+pre{
+	font-size: .75em;
+}
+
+code{
+	padding: 2px 4px;
+}
+
+a{
+	color: #EC3F3E;
+}
+
+.example{
+	padding: 12px;
+	margin-bottom: 1.5em;
+}
+
+.guidelines{
+	font-size: 125%;
+}
+
+.guidelines-container{
+	max-width: 600px;
+}
+
+.section{
+	margin-bottom: 4.5em;
+}
+
+.section-title{
+	border-bottom: 1px solid #333;
+}
+
+.sidebar{
+	position: fixed;
+	left: 0;
+	width: auto;
+	background: #333;
+	padding: 24px;
+	height: 100%;
+}
+
+.sidebar a,
+.sidebar h3{
+	color: #fff;
+}
+
+.promo{
+	background: #EC3F3E;
+	color: #fff;
+}

@@ -1,0 +1,547 @@
+/*------------------------------------*\
+	Table of Contents
+\*------------------------------------*/
+
+/*
+	Reset
+	Base
+	Type
+	Form Control
+	Nav Object
+	Media Object
+	Island Object
+	Utilities
+	Grid
+*/
+
+/*-------------------------------------------------*\
+	$Reset 
+\*-------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-------------------------------------------------*\
+	$Base 
+\*-------------------------------------------------*/
+
+*{ 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+html{
+	overflow-y:scroll; 		
+	color: #444;
+	font-size: 100%; 		
+	background: #fff;
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body{
+	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased; 
+	line-height: 1.5;
+	height: 100%;
+}
+
+/* ------------------------- *\
+	$Headlines 
+\* ------------------------- */
+
+/* shared vertical margins */
+
+h1,h2,h3,h4,h5,h6,p, p + p,pre,blockquote,input,textarea,ol,ul,.island{
+	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: bold;
+	color: #333;
+}
+
+h1,.h1{
+	font-size:2em;			/* 32px */
+	line-height:1.5;		
+}
+h2,.h2{
+	font-size:1.5em;		/* 24px */
+	line-height:1;			
+}
+h3,.h3{
+	font-size:1.25em;		/* 20px */
+	line-height:1.2;		
+}
+h4,.h4{
+	font-size:1.125em;		/* 18px */
+	line-height:1.333;		
+}
+h5,.h5,
+h6,.h6{
+	font-size:1em;			/* 16px */
+	line-height:1.5;		
+}
+
+/* larger sized fonts */
+
+.massive{ font-size: 3.75em; }
+.huge{ font-size: 3.25em; }
+.big{ font-size: 3em; }
+
+/* ------------------------- *\
+	$Links 
+\* ------------------------- */
+
+a{ text-decoration: none; }
+
+a:visited{ opacity:0.8; }
+
+a:hover{ text-decoration:underline; }
+
+/* ------------------------- *\
+	$Blockquotes 
+\* ------------------------- */
+
+blockquote{ quotes: "\201c" "\201d"; }
+
+blockquote p:before{ content: "\201c"; content: open-quote; }
+
+blockquote p:after{ content: "\201d"; content: close-quote; }
+
+.source{
+	display:block;
+	font-style: italic;
+}
+
+.source:before{
+	content:"\2012"; 
+}
+
+/* ------------------------- *\
+	$Bold Elements 
+\* ------------------------- */
+
+strong,b,mark{
+	font-weight:bold;
+	font-style:inherit;
+}
+
+/* ------------------------- *\
+	$Italic Elements 
+\* ------------------------- */
+
+em,i,cite,q,address,dfn,var{
+	font-style:italic;
+	font-weight:inherit;
+}
+
+/*-------------------------------------------------*\
+	$Form Control
+\*-------------------------------------------------*/
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+label,
+input,
+textarea,
+button,
+select,
+option,
+.button{
+    cursor:pointer;
+}
+
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus{
+    cursor:text;
+}
+
+label{
+	display: block;
+	margin-bottom: 8px;
+}
+
+button,
+input,
+textarea,
+select,
+pre{
+	font-family: inherit;
+	font-size: 100%;
+	display: block;
+	width: 100%;
+	border: none;
+	background: transparent;
+	line-height: 1.5;
+	*font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner{ 
+    border: 0;
+    padding: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration{
+    -webkit-appearance: none;
+}
+
+textarea{	
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+	-moz-resize: vertical;
+}
+
+small,
+code{ 
+	line-height:1; 
+}
+
+pre,
+code{ 
+	font-family: Menlo, Monaco, "Courier New", monospace; 
+}
+
+pre{
+	padding: 8px;
+	white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+	line-height: 24px; 
+}
+
+img{
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+img,
+iframe,
+object,
+video,
+embed{
+	max-width: 100%;
+	height: auto;
+}
+
+/*-------------------------------------------------*\
+	$Nav Object
+	
+	<ul>
+		...
+		<li class="dropdown">
+			<a href="#">Link</a>
+			<ul class="dropdown-content nav-vertical">
+				...
+			</ul>
+		</li>
+	</ul>
+	
+\*-------------------------------------------------*/
+
+.nav,
+.nav-vertical{ 
+	list-style: none; 
+	*position: relative; /* weird :hover ie7 bug fix */
+}
+
+.nav > li{ 
+	display: inline-block; 
+	*display: inline; 
+	zoom: 1; 
+}
+
+.nav-vertical > li{
+ 	display: block;	 
+}
+
+.nav > li > a,
+.nav-vertical > li > a{ 
+	display: block; 
+	white-space: nowrap;
+}	
+
+.dropdown,
+.sub-dropdown{
+ 	position: relative; 
+}
+
+.dropdown-content{
+ 	position: absolute; 
+	left: -9999px;
+	top: 100%;
+	width: auto;
+}
+
+.dropdown:hover > .dropdown-content{
+	left: 0;
+}
+
+.sub-dropdown:hover > .dropdown-content{
+ 	left: 100%; 
+	top: 0;
+}
+
+/*-------------------------------------------------*\
+	$Media Object
+	
+	<div class="media">
+		<a href="..." class="img"><img src="..."/></a>
+		<div class="body">
+			...
+		</div>
+	</div>
+	
+\*-------------------------------------------------*/
+
+.media{ 
+	display:block; 
+}
+
+.media .img{
+	float:left;
+	margin-right:24px;
+}
+
+.media .img-right{
+	float: right;
+	margin-left: 24px;
+}
+
+.media .img img{
+	display: block;
+}	
+
+.media, .body{
+	overflow:hidden;
+	_overflow:visible; 
+	zoom:1;
+}
+
+/*-------------------------------------------------*\
+	$Island Object
+	
+	<div class="island">
+		...
+	</div>
+	
+\*-------------------------------------------------*/
+
+.island{
+	padding: 24px;
+}	
+
+.island > :last-child{
+	margin-bottom:0;
+}
+
+/*-------------------------------------------------*\
+	$Button Object
+\*-------------------------------------------------*/
+
+.button{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	padding: 8px 16px;
+	text-align: center;
+}
+
+button.button,
+input.button{
+	width: auto;
+	margin: 0;
+	*line-height: normal;
+	*overflow: visible;
+}
+
+.button:hover{
+	text-decoration: none;
+}
+
+/*------------------------------------*\
+	$Utilities
+\*------------------------------------*/
+
+.left{ float:left; }
+.right{ float:right; }
+.clear{ clear:both; float:none; }
+
+.text-left{ text-align:left; }
+.text-right{ text-align:right; }
+.text-center{ text-align:center; }
+
+.accessibility{ position:absolute; left:-99999px; }
+.numbered{ list-style: decimal inside !important; }
+.no-vertical-margin{ margin-bottom: 0; }
+
+/*-------------------------------------------------*\
+	$Grid
+	
+	<div class="container">
+		<div class="row">
+			<div class="grid5">
+				...
+			</div>
+		</div>
+	</div>
+	
+\*-------------------------------------------------*/
+
+.container,
+.row{
+	*zoom: 1;
+}
+.container{
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 8.5px; /* sets default width of grid12 ~940px */
+	*width: 940px;
+	*padding: 0;
+	overflow: hidden;
+}
+
+.row{
+	margin-left: -2%;
+	*margin-left: -20px;
+}
+
+.container:before, 
+.container:after,
+.row:before,
+.row:after{
+	display: table;
+	content: "";
+}
+
+.container:after,
+.row:after{ 
+	clear: both; 
+}
+
+[class*="grid"]{
+	margin-left: 2%;
+	*margin-left: 20px;
+	float: left;
+}
+
+.grid1{ width: 6.333%; *width: 60px; }
+.grid2{ width: 14.666%; *width: 140px; }
+.grid3{ width: 23%; *width: 220px; }
+.grid4{ width: 31.333%; *width: 300px; }
+.grid5{ width: 39.666%; *width: 380px; }
+.grid6{ width: 48%; *width: 460px; }
+.grid7{ width: 56.333%; *width: 540px; }
+.grid8{ width: 64.666%; *width: 620px; }
+.grid9{ width: 73%; *width: 700px; }
+.grid10{ width: 81.333%; *width: 780px; }
+.grid11{ width: 89.666%; *width: 860px; }
+.grid12{ width: 98%; *width: 940px; }
+
+.offset1{ margin-left: 10.333%; *margin-left: 100px; }
+.offset2{ margin-left: 18.666%; *margin-left: 180px; }
+.offset3{ margin-left: 27%; *margin-left: 260px; }
+.offset4{ margin-left: 35.333%; *margin-left: 340px; }
+.offset5{ margin-left: 43.666%; *margin-left: 420px; }
+.offset6{ margin-left: 52%; *margin-left: 500px; }
+.offset7{ margin-left: 60.333%; *margin-left: 580px; }
+.offset8{ margin-left: 68.666%; *margin-left: 660px; }
+.offset9{ margin-left: 77%; *margin-left: 740px; }
+.offset10{ margin-left: 85.333%; *margin-left: 820px; }
+.offset11{ margin-left: 93.666%; *margin-left: 900px; }
+
+/* Tablet (portrait - landscape) */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Tablet (portrait) - Phone (Landscape) */   
+@media (max-width: 767px) {
+	.container {
+		width: auto;
+		margin: auto;
+	}
+  
+	.row {
+		margin-left: 0; 
+	}
+  
+	[class*="grid"]{
+		float: none;
+		display: block;
+		width: auto;
+		margin: 0;
+	}
+	
+	.hide-tablet{
+		display: none;
+	}	
+}
+
+/* Phone (portrait) */
+@media (max-width: 480px) {
+	body{ 
+		-webkit-text-size-adjust:none;
+		    -ms-text-size-adjust: none;
+	}
+	
+	.hide-tablet,
+	.hide-mobile{
+		display: none;
+	}
+}
+

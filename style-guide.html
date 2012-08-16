@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	
+	<title></title>
+
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/core.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+</head>
+<body class="guidelines">
+	<div class="sidebar">
+		<h3 class="h4">Table Of Contents</h3>
+		<ol class="nav-vertical nav-sidebar">
+			<li><a href="#Syntax">Syntax</a></li>
+			<li><a href="#SelectorFormatting">Selector Formatting</a></li>
+			<li><a href="#SelectorSpecificity">Selector Specificity</a></li>
+			<li><a href="#Assumptions">Dont Make Assumptions</a></li>
+			<li><a href="#Shorthand">Shorthand</a></li>
+			<li><a href="#OOCSS">Code Reuse and OOCSS</a></li>
+			<li><a href="#Extension">Object Extension</a></li>
+			<li><a href="#Layout">Layout</a></li>
+			<li><a href="#Typography">Typography</a></li>
+			<li><a href="#GoldenNumber">Golden Number</a></li>
+			<li><a href="#Important">!important</a></li>
+		</ol>
+	</div>
+	<div class="container guidelines-container">
+		<h1>Adstream CSS Guidelines</h1>
+		<div class="section">
+			<h3 id="Syntax" class="section-title">Syntax</h3>
+			<p>Use multi line CSS to keep readability high, meaning there 
+			should be no single line declarations even if there is only 1 attribute 
+			being modified. When dealing with multiple selectors each new selector 
+			should be placed on a new line follow by a comma. Always use a trailing 
+			semi colon to keep the document less error prone across the lifespan of 
+			development.</p>
+<pre>
+.example,
+.another-example{
+		background: blue;
+		color: green;
+}
+</pre>
+			<p>When dealing with vendor prefixes keep all colons lined up.</p>
+<pre>
+.transition{
+		-webkit-transition: all; 
+		   -moz-transition: all;  
+			    -o-transition: all;
+}
+</pre>
+			<p>Multiple attribute values should be set on a new line and tabbed.</p>
+<pre>
+.text-shadow{
+		text-shadow:
+			&nbsp;0 1px 0 #000,
+			&nbsp;0 -1px 0 #fff;
+}
+</pre>
+		</div>
+		<div class="section">
+			<h3 id="SelectorFormatting" class="section-title">Selector Formatting</h3>
+			<p>Use hyphen delimited, lowercase selectors e.g. <code>.dropdown-content</code>. 
+			Make class names <em>sensible</em> to allow for
+			greater comprehension of what the class is doing in the CSS, <code>.d-cnt</code> is bad 
+			<code>.dropdown-content</code> is good. When dealing with prefixes try and giving meaning 
+			to the prefix of the selector when applicable. For example if you know that you 
+			want to add a selector inside <code>.dropdown</code> then prefix the selector
+			with <code>.dropdown</code> e.g. <code>.dropdown-content</code>. Keep this naming convention when dealing with component 
+			states e.g. <code>.is-active</code> or <code>.js-hover</code>.</p>
+		</div>
+		<div class="section">
+			<h3 id="SelectorSpecificity" class="section-title">Selector Specificity</h3>
+			<p>Keep all selectors short, efficient, and portable. Large selectors make 
+			your css fragile and do not allow the element to exist in multiple surroundings, for this reason keep selectors less than 3 levels deep. For example <code>.sidebar 
+			ul span</code> is not a very efficient selector because the <code>span</code> that is being styled can 
+			only live inside of <code>ul</code> that <em><strong>also</strong></em> lives inside of <code>.sidebar</code>. A better solution would be 
+			to use <code>.sidebar-title</code> so that the object at hand can live anywhere in the html. Keeping selectors 
+			short and explicit makes for greater code reusability and maintainability.</p>
+			<p>Selectors should not be prefixed with any parent element, this keeps the classes 
+			abstract and reusable. For instance lets take the selector <code>ul.nav li a</code>. The <code>ul</code> parent 
+			element is not needed here for two reasons; we already know this element being 
+			styled is going to be a list, and what if we wanted to use this selector to style both a <code>ul</code> and <code>ol</code>? At its current state that would
+			require us to use two selectors to make sure both <code>ul</code> and <code>ol</code> are styled the same.</p>
+		</div>
+		<div class="section">
+			<h3 id="Assumptions" class="section-title">Dont Make Assumptions</h3>
+			<p>Instead of building a selector that targets an assumed element such <code>.island a</code>, it is 
+			often more robust to put a class name on the element. What happens if we remove that <code>a</code> in our html and replace it 
+			with a <code>span</code>? The selector <code>.island a</code> no longer is valid and has to be restructured. 
+			Instead use something like <code>.island-tagline</code> that way no matter what element lives inside 
+			the <code>.island</code> object it will be styled correctly.</p>
+		</div>
+		<div class="section">
+			<h3 id="Shorthand" class="section-title">Shorthand</h3>
+			<p>Be extremely explicit when declaring selector attributes. It may be appealing to use 
+			<code>background: red</code>, however by using that declaration you are 
+			actually saying &#8220;I want no image to scroll, aligned top left and repeating X and Y and a 
+			background colour of red&#8221;. In most cases this will not be an issue but in the seldom 
+			occurances it does happen, being explicit can really help out with troubleshooting.</p>
+<pre>
+.foo{
+		background-color: red;
+		margin-left: 4px;
+}
+</pre>
+		</div>
+		<div class="section">
+			<h3 id="OOCSS" class="section-title">Code Reuse and OOCSS</h3>
+			<p>When building components try and keep things as DRY and portable as possible. Instead 
+			of building dozens of unique components, try and spot repeated design patterns and 
+			abstract them. Start with base "skeleton" components and then add classes onto these to 
+			extend their styling for more unique circumstances.</p>
+			<p>If you have to build a new component split it into structure and skin. Build the 
+			structure or "skeleton" of the component using very generic classes that can be reused 
+			and then use more specific classes to skin it up and add design treatments.</p>
+			<p>When developing HTML components try and use as little extra markup 
+			as possible. This not only keeps your HTML lean it also increases portability within your 
+			CSS and allows your selectors to be even more explicit. As an example when creating a 
+			navigation block instead of using:</p>
+<pre>
+&lt;div class="nav"&gt;
+		&lt;ul&gt;
+				&lt;li&gt;...&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/div>
+</pre>
+			<p>use</p>
+<pre>
+&lt;ul class="nav"&gt;
+		&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+		</div>
+		<div class="section">
+			<h3 id="Extension" class="section-title">Object Extension</h3>
+			<p>Before designing a new component take time to make sure that it has not already been created, or that an existing
+			component can be <em>extended</em> apon to fit your needs. Its worth
+			mentioning the open/close principle in object oriented design. It basically states that components are always open to <em>extension</em> but closed to <em>modification</em>, 
+			meaning that with just a single class you can potentially change the structure of a component
+			altogether. Therefore when utilizing CSS objects it is imperative to keep the open/close principle in mind. 
+			An easy example of component extension
+			is extending the <code>.nav</code> abstraction for a sites main navigation.</p>
+<pre>
+&lt;ul class="nav nav-main"&gt;
+		&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+		<p>Now all we have to call is our <code>.nav-main</code> selector to modify the <em>"skin"</em> of our navigation, since it is inheriting the structure of the <code>.nav</code> abstraction. As an
+		added bonus if we need to change the structure of the <code>.nav</code> abstraction for any means it can be completely done through the <code>.nav-main</code> class
+		making our code contained and portable.</p>
+		</div>
+		<div class="section">
+			<h3 id="Layout" class="section-title">Layout</h3><a href="grid-test.html">Demo of Grid System</a>
+			<p>All components should be totally free of widths. They should remain fluid and have 
+			their widths set by the grid system. Tru not to assign heights to anything but a grid, most 
+			components should have their heights adjusted purely from padding or line-height.</p>
+			<p>The actual layout of the site should exclusively rely on the grid system and nothing 
+			else. Think of it as a bookshelf, the grids are the holes to put your "books" or components 
+			in. This way we can ensure that everything will degrade gracefully at lower resolutions. 
+			Think of the grids as almost static and constant, meaning that no visual or box model 
+			styles should be applied to them.</p>
+		</div>
+		<div class="section">
+			<h3 id="Typography" class="section-title">Typography</h3>
+			<p>All typography is automatically sized and set to a consistant vertical rhythm, 
+			components should follow this vertical rhythm as well. Line heights should be set without a unit 
+			measurement. All font sizes should be applied in em's with a pixel
+			fallback to allow for responsive sizing determined by viewport size.</p>
+			<p>Before declaring a font size in a selector check and make sure it is not already declared. 
+			Header tag sizes have been designed to be interchangeable in size, meaning that if you want a 
+			<code>h1</code> to look like a <code>h3</code> you can simply use <code>&lt;h1 class="h3"&gt;&lt;/h1&gt;</code>.</p>
+		</div>
+		<div class="section">
+			<h3 id="GoldenNumber" class="section-title">Golden Number</h3>
+			<p>To keep optimal readability always use a "golden number" (or numbers divisible by the 
+			golden number) when dealing with margins or paddings. This number is derived from our line
+			height which is determined by taking the base font size (16) and multiplying it by 150% 
+			(1.5) which equals 24. Math is awesome.</p>
+		</div>
+		<div class="section">
+			<h3 id="Important" class="section-title">!important</h3>
+			<p>It is okay to use <code>!important</code> on helper classes that you want to take precedence such as
+			<code>.left{ float: left!important }</code>. Using <code>!important</code> to get yourself out of nasty specificity 
+			situations, is not advised. Rework your CSS and try  to combat these issues by refactoring 
+			your selectors. Keeping your selectors short explicit will help out here massively.</p>
+		</div>
+	</div>
+</body>
+</html>
