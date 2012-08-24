@@ -103,8 +103,8 @@ h1,h2,h3,h4,h5,h6,p, p + p,pre,blockquote,input,textarea,ol,ul,.island{
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: bold;
+	font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 700;
 	color: #333;
 }
 
@@ -202,8 +202,8 @@ option,
     cursor:pointer;
 }
 
-.text-input:active,
-.text-input:focus,
+.input-text:active,
+.input-text:focus,
 textarea:active,
 textarea:focus{
     cursor:text;
@@ -363,7 +363,8 @@ embed{
 	margin-left: 24px;
 }
 
-.media .img img{
+.media .img img,
+.media .img-right img{
 	display: block;
 }	
 
@@ -386,7 +387,12 @@ embed{
 	padding: 24px;
 }	
 
-.island > :last-child{
+.islet{
+	padding: 12px;
+}	
+
+.island > :last-child,
+.islet > :last-child{
 	margin-bottom:0;
 }
 
@@ -427,11 +433,12 @@ input.button{
 .text-center{ text-align:center; }
 
 .accessibility{ position:absolute; left:-99999px; }
-.numbered{ list-style: decimal inside !important; }
+.numbered{ list-style: decimal inside; }
 .no-vertical-margin{ margin-bottom: 0; }
+.half-vertical-margin{ margin-bottom: 12px; }
 
 /*-------------------------------------------------*\
-	$Grid
+	$Grid System
 	
 	<div class="container">
 		<div class="row">
@@ -537,6 +544,12 @@ input.button{
 	body{ 
 		-webkit-text-size-adjust:none;
 		    -ms-text-size-adjust: none;
+	}
+	
+	.media .img,
+	.media .img-right{
+		float: none;
+		margin: 0 0 24px;
 	}
 	
 	.hide-tablet,
