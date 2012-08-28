@@ -229,8 +229,7 @@ pre{
 	*font-family: Cambria, Georgia, "Times New Roman", Times, serif;
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner{ 
+::-moz-focus-inner{ 
     border: 0;
     padding: 0;
 }
@@ -296,7 +295,6 @@ embed{
 
 .nav,
 .nav-vertical{ 
-	list-style: none; 
 	*position: relative; /* weird :hover ie7 bug fix */
 }
 
@@ -404,7 +402,6 @@ embed{
 	display: inline-block;
 	*display: inline;
 	zoom: 1;
-	padding: 8px 16px;
 	text-align: center;
 }
 
