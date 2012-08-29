@@ -224,7 +224,8 @@ pre{
 	display: block;
 	width: 100%;
 	border: none;
-	background: transparent;
+	background: #fff;
+	border: 1px solid #ddd;
 	line-height: 1.5;
 	*font-family: Cambria, Georgia, "Times New Roman", Times, serif;
 }
@@ -232,6 +233,14 @@ pre{
 ::-moz-focus-inner{ 
     border: 0;
     padding: 0;
+}
+
+img::selection{
+	background: transparent;
+}
+
+img::-moz-selection{
+	background: transparent;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -266,6 +275,7 @@ pre{
 
 img{
 	border: 0;
+	height: auto;
 	-ms-interpolation-mode: bicubic;
 }
 
@@ -275,7 +285,6 @@ object,
 video,
 embed{
 	max-width: 100%;
-	height: auto;
 }
 
 /*-------------------------------------------------*\
