@@ -148,6 +148,11 @@ a:hover{ text-decoration:underline; }
 
 /* ------------------------- *\
 	$Blockquotes 
+	
+	<blockquote>
+		<p>...</p>
+		<strong class="source">...</strong>
+	</blockquote>
 \* ------------------------- */
 
 blockquote{ quotes: "\201c" "\201d"; }
