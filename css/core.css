@@ -223,7 +223,6 @@ pre{
 	font-size: 100%;
 	display: block;
 	width: 100%;
-	border: none;
 	background: #fff;
 	border: 1px solid #ddd;
 	line-height: 1.5;
@@ -263,6 +262,11 @@ code{
 pre,
 code{ 
 	font-family: Menlo, Monaco, "Courier New", monospace; 
+}
+
+code{
+	padding: 2px 4px;
+	background: #eee;
 }
 
 pre{
@@ -442,6 +446,7 @@ input.button{
 .numbered{ list-style: decimal inside; }
 .no-vertical-margin{ margin-bottom: 0; }
 .half-vertical-margin{ margin-bottom: 12px; }
+.full-vertical-margin{ margin-bottom: 24px; }
 
 /*-------------------------------------------------*\
 	$Grid System
