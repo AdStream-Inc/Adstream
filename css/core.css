@@ -84,7 +84,7 @@ html{
 }
 
 body{
-	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+	font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased; 
 	line-height: 1.5;
@@ -98,12 +98,10 @@ body{
 /* shared vertical margins */
 
 h1,h2,h3,h4,h5,h6,p, p + p,pre,blockquote,input,textarea,ol,ul,.island{
-	margin-bottom: 24px;
-	margin-bottom: 1.5rem;
+	margin-bottom: 20px;
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 700;
 	color: #333;
 }
@@ -231,7 +229,7 @@ pre{
 	background: #fff;
 	border: 1px solid #ddd;
 	line-height: 1.5;
-	*font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+	*font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 ::-moz-focus-inner{ 
@@ -279,7 +277,7 @@ pre{
 	white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
-	line-height: 24px; 
+	line-height: 20px; 
 }
 
 img{
@@ -371,12 +369,12 @@ embed{
 
 .media .img{
 	float:left;
-	margin-right:24px;
+	margin-right:20px;
 }
 
 .media .img-right{
 	float: right;
-	margin-left: 24px;
+	margin-left: 20px;
 }
 
 .media .img img,
@@ -400,11 +398,11 @@ embed{
 \*-------------------------------------------------*/
 
 .island{
-	padding: 24px;
+	padding: 20px;
 }	
 
 .islet{
-	padding: 12px;
+	padding: 10px;
 }	
 
 .island > :last-child,
@@ -450,8 +448,8 @@ input.button{
 .accessibility{ position:absolute; left:-99999px; }
 .numbered{ list-style: decimal inside; }
 .no-vertical-margin{ margin-bottom: 0; }
-.half-vertical-margin{ margin-bottom: 12px; }
-.full-vertical-margin{ margin-bottom: 24px; }
+.half-vertical-margin{ margin-bottom: 10px; }
+.full-vertical-margin{ margin-bottom: 20px; }
 
 /*-------------------------------------------------*\
 	$Grid System
