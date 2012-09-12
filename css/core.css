@@ -89,6 +89,7 @@ body{
 	-webkit-font-smoothing: antialiased; 
 	line-height: 1.5;
 	min-height: 100%;
+	font-size: 14px;
 }
 
 /* ------------------------- *\
@@ -342,10 +343,12 @@ embed{
 	width: auto;
 }
 
+.dropdown.hover > .dropdown-content,
 .dropdown:hover > .dropdown-content{
 	left: 0;
 }
 
+.sub-dropdown.hover > .dropdown-content,
 .sub-dropdown:hover > .dropdown-content{
  	left: 100%; 
 	top: 0;
@@ -474,7 +477,6 @@ input.button{
 	padding: 0 8.5px; /* sets default width of grid12 ~940px */
 	*width: 940px;
 	*padding: 0;
-	overflow: hidden;
 }
 
 .row{
