@@ -226,7 +226,6 @@ pre{
 	font-family: inherit;
 	font-size: 100%;
 	display: block;
-	width: 100%;
 	background: #fff;
 	border: 1px solid #ddd;
 	line-height: 1.5;
@@ -448,7 +447,7 @@ input.button{
 .text-right{ text-align:right; }
 .text-center{ text-align:center; }
 
-.accessibility{ position:absolute; left:-99999px; }
+.accessibility{ text-indent: 100%; white-space: nowrap; overflow: hidden; }
 .numbered{ list-style: decimal inside; }
 .no-vertical-margin{ margin-bottom: 0; }
 .half-vertical-margin{ margin-bottom: 10px; }
